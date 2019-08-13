@@ -1,0 +1,10 @@
+name: Duel
+main: pawarenessc\duel\Main
+version: 0.1
+api: [4.0.0,3.0.0,3.5.0]
+authors: PawarenessC
+load: POSTWORLD
+commands:
+ pvp:
+  description: "PvPのコマンド"
+  usage: "/pvp"
