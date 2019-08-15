@@ -59,7 +59,6 @@ class Main extends pluginBase implements Listener{
 				"アイテム5"=>"0:0:0"
 			),
 		]);
-		$this->invv = new Config($this->getDataFolder() . "inv.yml", Config::YAML);
 		$this->xyz = new Config($this->getDataFolder() . "xyz.yml", Config::YAML, array(
 			"pos1"=> array(
 				"x"=>123,
@@ -210,8 +209,6 @@ class Main extends pluginBase implements Listener{
 		$level = $this->getServer()->getDefaultLevel();
 		$p1->teleport($level->getSafeSpawn());
 		$p2->teleport($level->getSafeSpawn());
-		$p1->getInventory->setContents($this->invv->get($name1));
-		$p2->getInventory->setContents($this->invv->get($name2));
 		if($na == $this->n1){
 			$this->getServer()->broadcastMessage("{$pre}{$na}§6が勝利しました！");
 			API::getInstance()->increase($p1, $this->config->get("報酬"), "1vs1", "勝利");
@@ -250,8 +247,6 @@ class Main extends pluginBase implements Listener{
 			$this->status  = false;
 			$name1 = $p1->getName();
 			$name2 = $p2->getName();
-			$p1->getInventory->setContents($this->invv->get($name1));
-			$p2->getInventory->setContents($this->invv->get($name2));
 			$this->n1 = "";
 			$this->n2 = "";
 		}else{
@@ -260,8 +255,6 @@ class Main extends pluginBase implements Listener{
 			$this->status  = false;
 			$name1 = $p1->getName();
 			$name2 = $p2->getName();
-			$p1->getInventory->setContents($this->invv->get($name1));
-			$p2->getInventory->setContents($this->invv->get($name2));
 			$this->n1 = "";
 			$this->n2 = "";
 		}
@@ -358,8 +351,6 @@ class Main extends pluginBase implements Listener{
 		$p2 = $this->getServer()->getPlayer($this->n2);
 		$name1 = $p1->getName();
 		$name2 = $p2->getName();
-		$p1->getInventory->setContents($this->invv->get($name1));
-		$p2->getInventory->setContents($this->invv->get($name2));
 		$level = $this->getServer()->getDefaultLevel();
 		$p1->teleport($level->getSafeSpawn());
 		$p2->teleport($level->getSafeSpawn())
